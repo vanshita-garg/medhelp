@@ -1,0 +1,551 @@
+.index {
+  background-color: rgba(255, 255, 255, 1);
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  width: 100%;
+}
+
+.index .div {
+  background-color: rgba(255, 255, 255, 1);
+  overflow: hidden;
+  background: linear-gradient(180deg, rgb(203.08, 240.39, 246.91) 71.31%, rgba(203.08, 240.39, 246.91, 0) 82.53%);
+  width: 1440px;
+  height: 2463px;
+  position: relative;
+}
+
+.index .overlap {
+  position: absolute;
+  width: 2124px;
+  height: 1528px;
+  top: -518px;
+  left: 0;
+}
+
+.index .overlap-group {
+  position: absolute;
+  width: 2124px;
+  height: 1528px;
+  top: 0;
+  left: 0;
+}
+
+.index .ellipse {
+  position: absolute;
+  width: 1592px;
+  height: 1434px;
+  top: 0;
+  left: 532px;
+  border-radius: 796px/717px;
+  background: linear-gradient(
+    180deg,
+    rgb(17.51, 121.61, 154.49) 0%,
+    rgba(126.51, 238.01, 249.69, 0.62) 56%,
+    rgba(59.87, 153.72, 163.55, 0.62) 71.99%,
+    rgba(59.87, 153.72, 163.55, 0.62) 71.99%,
+    rgba(59.87, 153.72, 163.55, 0.62) 72%,
+    rgba(128.99, 206.11, 178.35, 0) 100%
+  );
+  transition: all 0.2s ease;
+}
+
+.index .text-wrapper {
+  position: absolute;
+  width: 118px;
+  top: 586px;
+  left: 607px;
+  transition: all 0.2s ease;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  font-style: italic;
+  color: #000000;
+  font-size: 35px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.index .cute-cartoon-girl {
+  position: absolute;
+  width: 705px;
+  height: 811px;
+  top: 717px;
+  left: 735px;
+  object-fit: cover;
+}
+
+.index .your-health-your {
+  position: absolute;
+  width: 697px;
+  top: 897px;
+  left: 105px;
+  font-family: "Inter", Helvetica;
+  font-weight: 600;
+  font-style: italic;
+  color: #2f3c4d;
+  font-size: 40px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.index .panel-cas {
+  position: absolute;
+  width: 787px;
+  height: 105px;
+  top: 1037px;
+  left: 87px;
+  background-color: #ffffff6b;
+  border-radius: 40px;
+  transition: all 0.2s ease;
+}
+
+.index .p {
+  position: absolute;
+  top: 1182px;
+  left: 110px;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  font-style: italic;
+  color: #2f3c4d;
+  font-size: 20px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.index .selcategory {
+  position: absolute;
+  width: 254px;
+  height: 68px;
+  top: 1054px;
+  left: 110px;
+}
+
+.index .select-category {
+  width: 252px;
+  height: 46px;
+  background-color: #cbf0f7;
+  border-radius: 50px;
+  border: 0;
+  top: 20px;
+  left: 33px;
+  font-family: "Inter", Helvetica;
+  font-weight: 100;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  padding: 0;
+}
+
+.index .select-area {
+  position: absolute;
+  width: 254px;
+  height: 68px;
+  top: 1055px;
+  left: 390px;
+}
+
+.index .select-area-wrapper {
+  width: 252px;
+  height: 46px;
+  background-color: #cbf0f7f0;
+  border-radius: 50px;
+  border: 0;
+  top: 18px;
+  left: 67px;
+  font-family: "Inter", Helvetica;
+  font-weight: 100;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  padding: 0;
+}
+.index .search-button{
+      background: none;
+      border: none;
+      padding: 0;
+      cursor: pointer;
+      outline: none;
+}
+.index .search {
+  width: 1180px;
+  height: 59px;
+  top: 1061px;
+  left: 670px;
+  position: absolute;
+}
+.index .search-text{
+  position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      font-family: "Inter-Thin", Helvetica;
+      font-weight: 100;
+      color: #000000;
+      font-size: 24px;
+      letter-spacing: 0;
+      line-height: normal;
+      white-space: nowrap;
+}
+
+.index .overlap-2 {
+  position: relative;
+  width: 178px;
+  height: 59px;
+  border-radius: 50px;
+}
+
+.index .rectangle {
+  position: absolute;
+  width: 178px;
+  height: 59px;
+  top: 0;
+  left: 0;
+  background-color: #4bacc4b0;
+  border-radius: 50px;
+}
+
+.index .input {
+  width: 110px;
+  top: 16px;
+  left: 46px;
+  font-family: "Inter", Helvetica;
+  font-weight: 100;
+  color: #000000;
+  font-size: 24px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+  position: absolute;
+  background: transparent;
+  border: none;
+  padding: 0;
+}
+
+.index .aboutus {
+  position: absolute;
+  width: 165px;
+  height: 44px;
+  top: 587px;
+  left: 861px;
+  transition: all 0.2s ease;
+}
+
+.index .text-wrapper-2 {
+  position: absolute;
+  width: 150px;
+  top: 0;
+  left: 13px;
+  transition: all 0.2s ease;
+  font-family: "Inter", Helvetica;
+  font-weight: 300;
+  font-style: italic;
+  color: #000000;
+  font-size: 35px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.index .about-us-line {
+  position: absolute;
+  width: 148px;
+  height: 1px;
+  top: 43px;
+  left: 0;
+  object-fit: cover;
+}
+
+.index .getstarted {
+  position: absolute;
+  width: 247px;
+  height: 89px;
+  top: 587px;
+  left: 1173px;
+  transition: all 0.2s ease;
+}
+
+.index .overlap-3 {
+  position: relative;
+  width: 245px;
+  height: 89px;
+}
+
+.index .text-wrapper-3 {
+  position: absolute;
+  width: 245px;
+  top: 0;
+  left: 0;
+  transition: all 0.2s ease;
+  font-family: "Inter", Helvetica;
+  font-weight: 300;
+  font-style: italic;
+  color: #000000;
+  font-size: 35px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.index .getstarted-line {
+  position: absolute;
+  width: 148px;
+  height: 1px;
+  top: 43px;
+  left: 7px;
+  object-fit: cover;
+}
+
+.index .m-e-line {
+  position: absolute;
+  width: 1440px;
+  height: 1px;
+  top: 1511px;
+  left: 0;
+  object-fit: cover;
+}
+
+.index .text-wrapper-4 {
+  position: absolute;
+  top: 603px;
+  left: 67px;
+  -webkit-text-stroke: 1px #fff7f7;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  font-style: italic;
+  color: #3a656f;
+  font-size: 80px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.index .e-w-line {
+  position: absolute;
+  width: 1440px;
+  height: 1px;
+  top: 1642px;
+  left: 0;
+  object-fit: cover;
+}
+
+.index .overlap-4 {
+  position: absolute;
+  width: 1370px;
+  height: 518px;
+  top: 1113px;
+  left: 55px;
+}
+
+.index .overlap-5 {
+  position: absolute;
+  width: 1041px;
+  height: 433px;
+  top: 0;
+  left: 329px;
+}
+
+.index .text-wrapper-5 {
+  position: absolute;
+  top: 0;
+  left: 0;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  font-style: italic;
+  color: #000000;
+  font-size: 40px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.index .find-doc {
+  position: absolute;
+  width: 426px;
+  height: 290px;
+  top: 143px;
+  left: 107px;
+}
+
+.index .img {
+  position: absolute;
+  width: 138px;
+  height: 121px;
+  top: 0;
+  left: 143px;
+  object-fit: cover;
+}
+
+.index .div-2 {
+  position: absolute;
+  width: 424px;
+  top: 145px;
+  left: 0;
+  font-family: "Inter", Helvetica;
+  font-weight: 400;
+  color: #000000;
+  font-size: 40px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.index .span {
+  font-weight: 700;
+  font-style: italic;
+}
+
+.index .text-wrapper-6 {
+  font-weight: 300;
+  font-style: italic;
+  font-size: 24px;
+}
+
+.index .text-wrapper-7 {
+  font-weight: 300;
+  font-style: italic;
+}
+
+.index .happy {
+  position: absolute;
+  width: 426px;
+  height: 290px;
+  top: 143px;
+  left: 615px;
+}
+
+.index .how-to-start {
+  position: absolute;
+  width: 363px;
+  height: 316px;
+  top: 202px;
+  left: 0;
+  transition: all 0.2s ease;
+}
+
+.index .overlap-6 {
+  position: relative;
+  width: 359px;
+  height: 316px;
+}
+
+.index .rect-how {
+  position: absolute;
+  width: 359px;
+  height: 249px;
+  top: 0;
+  left: 0;
+  background-color: #ffffff80;
+}
+
+.index .set-the-category-set {
+  position: absolute;
+  width: 356px;
+  top: 86px;
+  left: 3px;
+  font-family: "Inter", Helvetica;
+  font-weight: 300;
+  font-style: italic;
+  color: #000000;
+  font-size: 35px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.index .text-wrapper-8 {
+  position: absolute;
+  width: 294px;
+  top: 26px;
+  left: 18px;
+  font-family: "Inter", Helvetica;
+  font-weight: 300;
+  font-style: italic;
+  color: #000000;
+  font-size: 35px;
+  text-align: center;
+  letter-spacing: 0;
+  line-height: normal;
+  text-decoration: underline;
+}
+
+.index .text-wrapper-9 {
+  position: absolute;
+  top: 1025px;
+  left: 245px;
+  -webkit-text-stroke: 1px #cbf0f7;
+  font-family: "Inter", Helvetica;
+  font-weight: 500;
+  font-style: italic;
+  color: #cbf0f7;
+  font-size: 40px;
+  letter-spacing: 0;
+  line-height: normal;
+  white-space: nowrap;
+}
+
+.index .text-wrapper-10 {
+  position: absolute;
+  width: 365px;
+  top: 1710px;
+  left: 554px;
+  font-family: "Inter", Helvetica;
+  font-weight: 300;
+  font-style: italic;
+  color: #000000;
+  font-size: 64px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.index .overlap-7 {
+  position: absolute;
+  width: 1630px;
+  height: 821px;
+  top: 1854px;
+  left: 74px;
+}
+
+.index .building-a-lasting {
+  position: absolute;
+  width: 1060px;
+  top: 0;
+  left: 0;
+  font-family: "Inter", Helvetica;
+  font-weight: 300;
+  color: #000000;
+  font-size: 48px;
+  letter-spacing: 0;
+  line-height: normal;
+}
+
+.index .text-wrapper-11 {
+  font-style: italic;
+}
+
+.index .text-wrapper-12 {
+  font-style: italic;
+  font-size: 36px;
+}
+
+.index .text-wrapper-13 {
+  font-style: italic;
+  font-size: 64px;
+}
+
+.index .blue-doc-ecliip {
+  position: absolute;
+  width: 829px;
+  height: 749px;
+  top: 72px;
+  left: 801px;
+  background-color: #54788c;
+  border-radius: 414.5px/374.5px;
+}
+
+.index .blue-doc {
+  position: absolute;
+  width: 351px;
+  height: 426px;
+  top: 183px;
+  left: 1013px;
+  object-fit: cover;
+}

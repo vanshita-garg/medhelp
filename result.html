@@ -1,0 +1,141 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="resukt.css">
+
+    <title>Doctor Results</title>
+</head>
+<body>
+    <div class="result">
+        <div class="medhelp-logo">MedHelp</div>
+        <div class="overlap-wrapper">
+            <div class="overlap">
+                <p class="result-heading">WE FOUND THE FOLLOWING DOCTORS FOR YOU</p>
+
+        <ul id="doctorList">
+            <!-- Doctors will be dynamically added here -->
+        </ul>
+        <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const queryString = window.location.search;
+      const urlParams = new URLSearchParams(queryString);
+      const selectedCategory = urlParams.get('category');
+      const selectedArea = urlParams.get('area');
+      const matchedDoctors = findMatchingDoctors(selectedCategory, selectedArea);
+
+      if (matchedDoctors.length > 0) {
+        displayDoctorResults(matchedDoctors);
+      } else {
+        alert('No doctors found in the selected category and area.');
+      }
+    });
+
+    function findMatchingDoctors(category, area) {
+      const dataset = getDoctorDataset();
+      return dataset.filter(doctor => doctor.Specialization.toLowerCase() === category.toLowerCase() && doctor.City.toLowerCase() === area.toLowerCase());
+    }
+
+    function displayDoctorResults(doctors) {
+      const doctorListElement = document.getElementById('doctorList');
+
+      doctors.forEach(doctor => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `Doctor: ${doctor.DoctorName}, Rating: ${doctor.Rating}, Experience: ${doctor.Experience}, Contact: ${doctor.Contact}, Address: ${doctor.Address}`;
+        doctorListElement.appendChild(listItem);
+      });
+    }
+
+    function getDoctorDataset() {
+      return [
+              { DoctorName: 'Dr. Neha Kapoor', Specialization: 'Cardiologist', City: 'Mumbai', Rating: '4.65', Contact: '98765 12345', Experience: '12 years', Address: 'HeartCare Hospital, MG Road, Mumbai' },
+              { DoctorName: 'Dr. Vikram Singh', Specialization: 'Dermatologist', City: 'Hyderabad', Rating: '4.65', Contact: '87654 23456', Experience: '15 years', Address: 'SkinGlow Clinic, Jubilee Hills, Hyderabad' },
+              { DoctorName: 'Dr. Ananya Verma', Specialization: 'Orthopedic Surgeon', City: 'Bangalore', Rating: '4.85', Contact: '76543 34567', Experience: '10 years', Address: 'BoneCare Hospital, Rajajinagar, Bangalore' },
+              { DoctorName: 'Dr. Rajesh Khanna', Specialization: 'Pediatrician', City: 'Chennai', Rating: '4.65', Contact: '65432 45678', Experience: '18 years', Address: 'TinyTots Clinic, Anna Nagar, Chennai' },
+              { DoctorName: 'Dr. Ayesha Khan', Specialization: 'ENT Specialist', City: 'Hyderabad', Rating: '4.75', Contact: '54321 56789', Experience: '14 years', Address: 'SoundCare Hospital, Banjara Hills, Hyderabad' },
+              { DoctorName: 'Dr. Siddharth Reddy', Specialization: 'Ophthalmologist', City: 'Hyderabad', Rating: '4.85', Contact: '87654 32109', Experience: '12 years', Address: 'VisionCare Clinic, Jubilee Hills, Hyderabad' },
+              { DoctorName: 'Dr. Priya Sharma', Specialization: 'Dentist', City: 'Mumbai', Rating: '4.65', Contact: '98765 43210', Experience: '15 years', Address: 'PearlSmile Dental Clinic, MG Road, Mumbai' },
+              { DoctorName: 'Dr. Arjun Kapoor', Specialization: 'Psychiatrist', City: 'Delhi', Rating: '4.75', Contact: '87654 10987', Experience: '14 years', Address: 'MindWell Clinic, Connaught Place, Delhi' },
+              { DoctorName: 'Dr. Nandini Gupta', Specialization: 'Gynecologist', City: 'Bangalore', Rating: '4.85', Contact: '76543 21098', Experience: '16 years', Address: 'Blossom Women\'s Clinic, Indiranagar, Bangalore' },
+              { DoctorName: 'Dr. Vikram Singh', Specialization: 'Dermatologist', City: 'Hyderabad', Rating: '4.65', Contact: '65432 10987', Experience: '13 years', Address: 'SkinGlow Dermatology Clinic, Banjara Hills, Hyderabad' },
+              { DoctorName: 'Dr. Ananya Verma', Specialization: 'Pediatrician', City: 'Bangalore', Rating: '4.85', Contact: '87654 32190', Experience: '14 years', Address: 'TinyCare Children\'s Clinic, Whitefield, Bangalore' },
+              { DoctorName: 'Dr. Rajiv Kapoor', Specialization: 'Orthopedic Surgeon', City: 'Mumbai', Rating: '4.65', Contact: '98765 43901', Experience: '15 years', Address: 'OrthoCare Hospital, Powai, Mumbai' },
+              { DoctorName: 'Dr. Aisha Khan', Specialization: 'ENT Specialist', City: 'Bangalore', Rating: '4.75', Contact: '87654 10987', Experience: '12 years', Address: 'ClearHear ENT Clinic, Rajajinagar, Bangalore' },
+              { DoctorName: 'Dr. Prateek Sharma', Specialization: 'Neurologist', City: 'Delhi', Rating: '4.85', Contact: '65432 21098', Experience: '13 years', Address: 'NeuroWell Hospital, Connaught Place, Delhi' },
+              { DoctorName: 'Dr. Nandini Reddy', Specialization: 'Gynecologist', City: 'Hyderabad', Rating: '4.65', Contact: '78901 23456', Experience: '14 years', Address: 'Blossom Women\'s Clinic, Jubilee Hills, Hyderabad' },
+              { DoctorName: 'Dr. Arjun Singh', Specialization: 'Cardiologist', City: 'Chennai', Rating: '4.75', Contact: '87654 32109', Experience: '16 years', Address: 'HeartCare Center, Anna Nagar, Chennai' },
+              { DoctorName: 'Dr. Kavita Sharma', Specialization: 'Dermatologist', City: 'Hyderabad', Rating: '4.85', Contact: '98765 21098', Experience: '14 years', Address: 'SkinGlow Clinic, Banjara Hills, Hyderabad' },
+              { DoctorName: 'Dr. Rohit Desai', Specialization: 'Psychiatrist', City: 'Mumbai', Rating: '4.65', Contact: '87654 21098', Experience: '15 years', Address: 'MindCare Psychiatry Clinic, Malad West, Mumbai' },
+              { DoctorName: 'Dr. Neha Gupta', Specialization: 'Ophthalmologist', City: 'Delhi', Rating: '4.75', Contact: '65432 10987', Experience: '13 years', Address: 'EyeVision Care Center, Rajouri Garden, Delhi' },
+              { DoctorName: 'Dr. Amit Verma', Specialization: 'Orthopedic Surgeon', City: 'Bangalore', Rating: '4.85', Contact: '76543 10987', Experience: '12 years', Address: 'BoneWell Hospital, Koramangala, Bangalore' },
+              { DoctorName: 'Dr. Sneha Kapoor', Specialization: 'Gynecologist', City: 'Hyderabad', Rating: '4.65', Contact: '87654 98701', Experience: '14 years', Address: 'MotherCare Hospital, Jubilee Hills, Hyderabad' },
+              { DoctorName: 'Dr. Rajiv Kumar', Specialization: 'ENT Specialist', City: 'Bangalore', Rating: '4.75', Contact: '98765 87601', Experience: '15 years', Address: 'EarCare Clinic, Malleshwaram, Bangalore' },
+              { DoctorName: 'Dr. Pooja Sharma', Specialization: 'Pediatrician', City: 'Delhi', Rating: '4.85', Contact: '65432 87601', Experience: '13 years', Address: 'TinyCare Children\'s Clinic, Rohini, Delhi' },
+              { DoctorName: 'Dr. Sameer Kapoor', Specialization: 'Neurologist', City: 'Bangalore', Rating: '4.65', Contact: '76543 87601', Experience: '16 years', Address: 'BrainHealth Neurology Center, Koramangala, Bangalore' },
+              { DoctorName: 'Dr. Ananya Singh', Specialization: 'Dermatologist', City: 'Hyderabad', Rating: '4.75', Contact: '98765 54321', Experience: '12 years', Address: 'SkinCare Clinic, Banjara Hills, Hyderabad' },
+              { DoctorName: 'Dr. Arjun Reddy', Specialization: 'Orthopedic Surgeon', City: 'Hyderabad', Rating: '4.85', Contact: '87654 76501', Experience: '18 years', Address: 'JointCare Ortho Clinic, Kondapur, Hyderabad' },
+              { DoctorName: 'Dr. Nandini Sharma', Specialization: 'Psychiatrist', City: 'Delhi', Rating: '4.65', Contact: '76543 76501', Experience: '16 years', Address: 'MindWell Psychiatry Center, Lajpat Nagar, Delhi' }, { DoctorName: 'Dr. Vikas Gupta', Specialization: 'Ophthalmologist', City: 'Bangalore', Rating: '4.75', Contact: '65432 76501', Experience: '17 years', Address: 'EyeCare Clinic, Jayanagar, Bangalore' },
+              { DoctorName: 'Dr. Meera Verma', Specialization: 'Dentist', City: 'Hyderabad', Rating: '4.85', Contact: '87654 65401', Experience: '14 years', Address: 'SmileBright Dental Clinic, Secunderabad, Hyderabad' },
+              { DoctorName: 'Dr. Rajesh Malhotra', Specialization: 'Cardiologist', City: 'Gurgaon', Rating: '4.65', Contact: '76543 65401', Experience: '20 years', Address: 'HeartCare Center, Gurgaon, Haryana' },
+              { DoctorName: 'Dr. Priya Kapoor', Specialization: 'Gynecologist', City: 'Delhi', Rating: '4.75', Contact: '87654 54321', Experience: '18 years', Address: 'Women\'s Wellness Clinic, Vasant Kunj, Delhi' },
+              { DoctorName: 'Dr. Siddharth Patel', Specialization: 'Neurologist', City: 'Mumbai', Rating: '4.85', Contact: '76543 54321', Experience: '15 years', Address: 'NeuroCare Hospital, Andheri West, Mumbai' },
+              { DoctorName: 'Dr. Ananya Singh', Specialization: 'Pediatrician', City: 'Hyderabad', Rating: '4.65', Contact: '65432 54321', Experience: '16 years', Address: 'ChildHealth Clinic, Banjara Hills, Hyderabad' },
+              { DoctorName: 'Dr. Sameer Shah', Specialization: 'Dermatologist', City: 'Bangalore', Rating: '4.75', Contact: '87654 43210', Experience: '14 years', Address: 'SkinCare Clinic, Koramangala, Bangalore' },
+              { DoctorName: 'Dr. Aisha Verma', Specialization: 'Psychiatrist', City: 'Chennai', Rating: '4.85', Contact: '76543 67890', Experience: '17 years', Address: 'MindCare Institute, Nungambakkam, Chennai' },
+              { DoctorName: 'Dr. Rajeev Kumar', Specialization: 'Orthopedic Surgeon', City: 'Hyderabad', Rating: '4.85', Contact: '98765 43210', Experience: '20 years', Address: 'OrthoCare Hospital, Gachibowli, Hyderabad' },
+              { DoctorName: 'Dr. Ritu Sharma', Specialization: 'Ophthalmologist', City: 'Mumbai', Rating: '4.65', Contact: '87654 67890', Experience: '15 years', Address: 'EyeWell Clinic, Dadar West, Mumbai' },
+              { DoctorName: 'Dr. Anand Reddy', Specialization: 'Dentist', City: 'Chennai', Rating: '4.75', Contact: '76543 45678', Experience: '18 years', Address: 'BrightSmile Dental Care, Adyar, Chennai' },
+              { DoctorName: 'Dr. Neha Gupta', Specialization: 'Cardiologist', City: 'Bangalore', Rating: '4.85', Contact: '98765 56789', Experience: '16 years', Address: 'HeartWell Hospital, Indiranagar, Bangalore' },
+              { DoctorName: 'vanshita', Specialization:'Ophthalmologist', City: 'Delhi', Rating: '25', Contact: '87554 86323', Experience: '16 years', Address: 'HeartWell Hospital'},
+              { DoctorName: 'Dr. Rahul Sharma', Specialization: 'Neurologist', City: 'Delhi', Rating: '4.75', Contact: '98765 98765', Experience: '15 years', Address: 'MindCare Neurology Clinic, Karol Bagh, Delhi' },
+              { DoctorName: 'Dr. Anjali Kapoor', Specialization: 'Gynecologist', City: 'Mumbai', Rating: '4.85', Contact: '87654 87654', Experience: '14 years', Address: 'Blossom Women\'s Clinic, Andheri East, Mumbai' },
+              { DoctorName: 'Dr. Sameer Sharma', Specialization: 'Orthopedic Surgeon', City: 'Hyderabad', Rating: '4.65', Contact: '76543 76543', Experience: '16 years', Address: 'BoneCare Hospital, Kukatpally, Hyderabad' },
+              { DoctorName: 'Dr. Nisha Reddy', Specialization: 'ENT Specialist', City: 'Bangalore', Rating: '4.75', Contact: '98765 54321', Experience: '13 years', Address: 'ClearHear ENT Clinic, MG Road, Bangalore' },
+              { DoctorName: 'Dr. Rohini Singh', Specialization: 'Cardiologist', City: 'Chennai', Rating: '4.85', Contact: '65432 65432', Experience: '18 years', Address: 'HeartCare Center, Adyar, Chennai' },
+              { DoctorName: 'Dr. Prakash Verma', Specialization: 'Dermatologist', City: 'Delhi', Rating: '4.65', Contact: '87654 32109', Experience: '14 years', Address: 'SkinGlow Dermatology Clinic, Saket, Delhi' },
+              { DoctorName: 'Dr. Aryan Kapoor', Specialization: 'Pediatrician', City: 'Mumbai', Rating: '4.75', Contact: '76543 87601', Experience: '15 years', Address: 'TinyCare Children\'s Clinic, Goregaon, Mumbai' },
+              { DoctorName: 'Dr. Meera Singh', Specialization: 'Dentist', City: 'Hyderabad', Rating: '4.85', Contact: '98765 21098', Experience: '12 years', Address: 'SmileBright Dental Clinic, Hitech City, Hyderabad' },
+              { DoctorName: 'Dr. Anjali Sharma', Specialization: 'Psychiatrist', City: 'Bangalore', Rating: '4.65', Contact: '65432 10987', Experience: '13 years', Address: 'MindWell Psychiatry Clinic, Whitefield, Bangalore' },
+              { DoctorName: 'Dr. Arnav Gupta', Specialization: 'Ophthalmologist', City: 'Chennai', Rating: '4.75', Contact: '87654 98701', Experience: '14 years', Address: 'VisionCare Clinic, Velachery, Chennai' },
+              { DoctorName: 'Dr. Sneha Reddy', Specialization: 'Neurologist', City: 'Mumbai', Rating: '4.85', Contact: '76543 87601', Experience: '16 years', Address: 'BrainHealth Neurology Center, Bandra West, Mumbai' },
+              { DoctorName: 'Dr. Rajat Kapoor', Specialization: 'Gynecologist', City: 'Delhi', Rating: '4.65', Contact: '78901 23456', Experience: '14 years', Address: 'Women\'s Wellness Clinic, Dwarka, Delhi' },
+              { DoctorName: 'Dr. Kirti Verma', Specialization: 'Orthopedic Surgeon', City: 'Hyderabad', Rating: '4.75', Contact: '65432 87601', Experience: '15 years', Address: 'JointCare Ortho Clinic, Madhapur, Hyderabad' },
+              { DoctorName: 'Dr. Anushka Singh', Specialization: 'ENT Specialist', City: 'Bangalore', Rating: '4.85', Contact: '87654 43210', Experience: '14 years', Address: 'EarCare Clinic, Koramangala, Bangalore' },
+              { DoctorName: 'Dr. Varun Sharma', Specialization: 'Cardiologist', City: 'Chennai', Rating: '4.65', Contact: '98765 43210', Experience: '15 years', Address: 'HeartCare Center, Guindy, Chennai' },
+              { DoctorName: 'Dr. Nandini Patel', Specialization: 'Dermatologist', City: 'Hyderabad', Rating: '4.75', Contact: '76543 76543', Experience: '12 years', Address: 'SkinGlow Clinic, Ameerpet, Hyderabad' },
+              { DoctorName: 'Dr. Rishi Verma', Specialization: 'Pediatrician', City: 'Mumbai', Rating: '4.85', Contact: '98765 56789', Experience: '16 years', Address: 'TinyCare Children\'s Clinic, Colaba, Mumbai' },
+              { DoctorName: 'Dr. Anjali Kapoor', Specialization: 'Dentist', City: 'Delhi', Rating: '4.65', Contact: '87654 54321', Experience: '18 years', Address: 'SmileBright Dental Clinic, Karol Bagh, Delhi' },
+              { DoctorName: 'Dr. Sameer Khanna', Specialization: 'Psychiatrist', City: 'Bangalore', Rating: '4.75', Contact: '65432 21098', Experience: '17 years', Address: 'MindWell Psychiatry Clinic, Yelahanka, Bangalore' },
+              { DoctorName: 'Dr. Nisha Reddy', Specialization: 'Ophthalmologist', City: 'Chennai', Rating: '4.85', Contact: '87654 32109', Experience: '20 years', Address: 'EyeWell Clinic, Mylapore, Chennai' },
+              { DoctorName: 'Dr. Anand Singh', Specialization: 'Orthopedic Surgeon', City: 'Mumbai', Rating: '4.65', Contact: '76543 87601', Experience: '14 years', Address: 'OrthoCare Hospital, Malad East, Mumbai' },
+              { DoctorName: 'Dr. Priyanka Sharma', Specialization: 'ENT Specialist', City: 'Delhi', Rating: '4.75', Contact: '98765 54321', Experience: '13 years', Address: 'SoundCare ENT Clinic, Dwarka, Delhi' },
+              { DoctorName: 'Dr. Sameer Patel', Specialization: 'Cardiologist', City: 'Bangalore', Rating: '4.85', Contact: '87654 43210', Experience: '15 years', Address: 'HeartCare Center, Marathahalli, Bangalore' },
+              { DoctorName: 'Dr. Naina Gupta', Specialization: 'Dermatologist', City: 'Hyderabad', Rating: '4.75', Contact: '76543 76543', Experience: '12 years', Address: 'SkinGlow Dermatology Clinic, Kondapur, Hyderabad' },
+              { DoctorName: 'Dr. Rohit Verma', Specialization: 'Pediatrician', City: 'Chennai', Rating: '4.85', Contact: '65432 65432', Experience: '18 years', Address: 'TinyTots Clinic, T Nagar, Chennai' },
+              { DoctorName: 'Dr. Aishwarya Reddy', Specialization: 'Neurologist', City: 'Mumbai', Rating: '4.65', Contact: '87654 32109', Experience: '14 years', Address: 'BrainWell Neurology Center, Powai, Mumbai' },
+              { DoctorName: 'Dr. Vivek Kapoor', Specialization: 'Gynecologist', City: 'Delhi', Rating: '4.75', Contact: '98765 98765', Experience: '15 years', Address: 'Blossom Women\'s Clinic, Rohini, Delhi' },
+              { DoctorName: 'Dr. Neha Singh', Specialization: 'Orthopedic Surgeon', City: 'Hyderabad', Rating: '4.85', Contact: '65432 87601', Experience: '12 years', Address: 'BoneWell Hospital, Kukatpally, Hyderabad' },
+              { DoctorName: 'Dr. Rahul Malhotra', Specialization: 'ENT Specialist', City: 'Bangalore', Rating: '4.65', Contact: '87654 32109', Experience: '13 years', Address: 'EarCare Clinic, Indiranagar, Bangalore' },
+              { DoctorName: 'Dr. Ananya Khanna', Specialization: 'Cardiologist', City: 'Chennai', Rating: '4.75', Contact: '65432 10987', Experience: '14 years', Address: 'HeartWell Hospital, Anna Nagar, Chennai' },
+              { DoctorName: 'Dr. Sameer Verma', Specialization: 'Dermatologist', City: 'Delhi', Rating: '4.85', Contact: '87654 98701', Experience: '16 years', Address: 'SkinGlow Clinic, Connaught Place, Delhi' },
+              { DoctorName: 'Dr. Priya Reddy', Specialization: 'Psychiatrist', City: 'Mumbai', Rating: '4.65', Contact: '76543 87601', Experience: '16 years', Address: 'MindWell Psychiatry Clinic, Bandra West, Mumbai' },
+              { DoctorName: 'Dr. Karan Kapoor', Specialization: 'Ophthalmologist', City: 'Hyderabad', Rating: '4.75', Contact: '98765 43210', Experience: '17 years', Address: 'VisionCare Clinic, Hitech City, Hyderabad' },
+              { DoctorName: 'Dr. Nandini Sharma', Specialization: 'Dentist', City: 'Bangalore', Rating: '4.85', Contact: '65432 76501', Experience: '14 years', Address: 'PearlSmile Dental Clinic, Koramangala, Bangalore' },
+              { DoctorName: 'Dr. Alok Malhotra', Specialization: 'Neurologist', City: 'Chennai', Rating: '4.65', Contact: '87654 65401', Experience: '18 years', Address: 'BrainHealth Neurology Center, Adyar, Chennai' },
+              { DoctorName: 'Dr. Anjali Singh', Specialization: 'Gynecologist', City: 'Delhi', Rating: '4.75', Contact: '98765 54321', Experience: '18 years', Address: 'Women\'s Wellness Clinic, Vasant Vihar, Delhi' },
+              { DoctorName: 'Dr. Sameer Malhotra', Specialization: 'Orthopedic Surgeon', City: 'Mumbai', Rating: '4.85', Contact: '76543 54321', Experience: '15 years', Address: 'OrthoCare Hospital, Dadar East, Mumbai' },
+              { DoctorName: 'Dr. Sneha Sharma', Specialization: 'ENT Specialist', City: 'Hyderabad', Rating: '4.65', Contact: '78901 23456', Experience: '14 years', Address: 'SoundCare ENT Clinic, Banjara Hills, Hyderabad' },
+              { DoctorName: 'Dr. Rajiv Verma', Specialization: 'Cardiologist', City: 'Bangalore', Rating: '4.75', Contact: '87654 76501', Experience: '13 years', Address: 'HeartCare Center, Rajajinagar, Bangalore' },
+              { DoctorName: 'Dr. Anushka Malhotra', Specialization: 'Dermatologist', City: 'Chennai', Rating: '4.85', Contact: '65432 87601', Experience: '12 years', Address: 'SkinGlow Clinic, Velachery, Chennai' },
+              { DoctorName: 'Dr. Anika Gupta', Specialization: 'Ophthalmologist', City: 'Delhi', Rating: '4.8', Contact: '76543 89012', Experience: '16 years', Address: 'EyeCare Specialists, Karol Bagh, Delhi' }
+
+        // Your dataset entries
+      ];
+    }
+  </script>
+            </div>
+</div>
+ </div>
+</body>
+</html>

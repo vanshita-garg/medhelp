@@ -1,0 +1,44 @@
+/* Reset some default styles */
+body {
+    font-family: "Inter-Thin", Helvetica;
+    background-color: #cbf0f7;
+    font-size: 25px;
+}
+
+.result {
+    max-width: 1500px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.result-heading {
+    font-family: "Inter-MediumItalic", Helvetica;
+    font-weight: 500;
+    font-style: italic;
+    color: #000000;
+    font-size: 48px;
+    letter-spacing: 0;
+    line-height: normal;
+    margin-bottom: 30px; /* Add distance between heading and doctor details */
+}
+
+.medhelp-logo {
+    font-size: 60px;
+    font-weight: bold;
+    margin-bottom: 40px;
+}
+
+ul {
+    font-family: "Inter-Thin", Helvetica;
+    background-color: #cbf0f7;
+    font-size: 25px;
+    margin: 20px;
+    padding: 10px;
+    top: 250px;
+    left: 150px;
+    list-style: none; /* Remove default list styles */
+}
+ul li {
+    margin-bottom: 20px;
+}
+/* Add more styles as needed */

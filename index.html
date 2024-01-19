@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" href="resukt.css" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <div class="index">
+      <div class="div">
+        <div class="overlap">
+          <div class="overlap-group">
+            <div class="ellipse"></div>
+            <div class="text-wrapper">Home</div>
+            <img class="cute-cartoon-girl" src="img/cute-cartoon-3d-girl-ware-doctor-cloth-friendly-female-doctor-illustration-862994-63707-1-1.png" />
+            <p class="your-health-your">Your Health, Your Choice: <br />Find the Perfect Doctor with Ease!</p>
+            <div class="panel-cas"></div>
+            <p class="p">Friendly Docs, Special Skills, and They Solve the Health Puzzle!</p>
+            <div class="selcategory"><input class="select-category" placeholder="Select Category" type="text" /></div>
+            <div class="select-area"><input class="select-area-wrapper" placeholder="Select Area" type="text" /></div>
+            <div class="search">
+              <button class="search-button" onclick="performSearch()">
+                <div class="overlap-2">
+                  <div class="rectangle"></div>
+                  <span class="search-text">Search</span>
+                  </div>
+              </button>
+            </div>
+            <div class="aboutus">
+              <div class="text-wrapper-2">AboutUs</div>
+              <img class="about-us-line" src="img/about-us-line.svg" />
+            </div>
+            <div class="getstarted">
+              <div class="overlap-3">
+                <div class="text-wrapper-3">GetStarted</div>
+                <img class="getstarted-line" src="img/getstarted-line.svg" />
+              </div>
+            </div>
+            <img class="m-e-line" src="img/m-e-line.svg" />
+          </div>
+          <div class="text-wrapper-4">MedHelp</div>
+        </div>
+        <img class="e-w-line" src="img/e-w-line.svg" />
+        <div class="overlap-4">
+          <div class="overlap-5">
+            <p class="text-wrapper-5">Easy two Steps and get your solution</p>
+            <div class="find-doc">
+              <img class="img" src="img/find-eclip.jpeg" />
+              <p class="div-2">
+                <span class="span">Find best doctor’s<br /></span>
+                <span class="text-wrapper-6"
+                  >Find your doctor with minimum effort we‘ve kept everything organized for you.<br
+                /></span>
+                <span class="text-wrapper-7"><br /></span>
+              </p>
+            </div>
+            <div class="happy">
+              <img class="img" src="img/happy-eclip.png" />
+              <p class="div-2">
+                <span class="span">Happy Consultations<br /></span>
+                <span class="text-wrapper-6"
+                  >Experience joyful consultations with ease. We&#39;ve taken care of all the details for you.<br /><br /><br /><br /><br
+                /></span>
+                <span class="text-wrapper-7"><br /></span>
+              </p>
+            </div>
+          </div>
+          <div class="how-to-start">
+            <div class="overlap-6">
+              <div class="rect-how"></div>
+              <p class="set-the-category-set">set the Category<br />set the Area<br />click on Search</p>
+              <div class="text-wrapper-8">How to start??</div>
+            </div>
+          </div>
+        </div>
+        <div class="text-wrapper-9">.</div>
+        <div class="text-wrapper-10">We Belive</div>
+        <div class="overlap-7">
+          <p class="building-a-lasting">
+            <span class="text-wrapper-11"
+              >Building a lasting relationship with a trusted doctor is essential for maintaining good health.<br
+            /></span>
+            <span class="text-wrapper-12"
+              >Consult with our experienced team of top specialists.<br />Available 24/7 for your medical care.<br
+            /></span>
+            <span class="text-wrapper-13"><br /><br /><br /></span>
+          </p>
+          <div class="blue-doc-ecliip"></div>
+          <img class="blue-doc" src="img/blue-doc.png" />
+        </div>
+      </div>
+
+        <script>
+            function performSearch() {
+                const selectedCategory = document.querySelector('.select-category').value;
+                const selectedArea = document.querySelector('.select-area-wrapper').value;
+
+                // Redirect to result.html with selected category and area as query parameters
+                const queryString = `?category=${selectedCategory}&area=${selectedArea}`;
+                window.location.href = `result.html${queryString}`;
+            }
+        </script>
+    </div>
+  </body>
+</html>
